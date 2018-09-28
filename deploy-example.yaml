@@ -1,0 +1,89 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: 2018-09-25T13:45:41Z
+  generateName: hello-ignite-59b998bccb-
+  labels:
+    pod-template-hash: "1565546776"
+    run: hello-ignite
+  name: hello-ignite-59b998bccb-zxqqj
+  namespace: ignite2018
+  ownerReferences:
+  - apiVersion: extensions/v1beta1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: hello-ignite-59b998bccb
+    uid: 4afd1167-c0c9-11e8-bb8c-9a1127e59cf1
+  resourceVersion: "7991191"
+  selfLink: /api/v1/namespaces/ignite2018/pods/hello-ignite-59b998bccb-zxqqj
+  uid: 4b02abed-c0c9-11e8-bb8c-9a1127e59cf1
+spec:
+  containers:
+  - image: acrjdtest.azurecr.io/jldeen/build18-node:latest
+    imagePullPolicy: Always
+    name: hello-ignite
+    ports:
+    - containerPort: 3000
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-d2zpg
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  imagePullSecrets:
+  - name: my-secret
+  nodeName: aks-nodepool1-20971979-0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-d2zpg
+    secret:
+      defaultMode: 420
+      secretName: default-token-d2zpg
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: 2018-09-25T13:45:41Z
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: 2018-09-25T13:45:41Z
+    message: 'containers with unready status: [hello-ignite]'
+    reason: ContainersNotReady
+    status: "False"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: 2018-09-25T13:45:41Z
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - image: acrjdtest.azurecr.io/jldeen/build18-node:latest
+    imageID: ""
+    lastState: {}
+    name: hello-ignite
+    ready: false
+    restartCount: 0
+    state:
+      waiting:
+        reason: ContainerCreating
+  hostIP: 10.240.0.6
+  phase: Pending
+  qosClass: BestEffort
+  startTime: 2018-09-25T13:45:41Z
