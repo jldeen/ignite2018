@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-ignite2018
+  labels:
+    run: hello-ignite2018
+spec:
+  replicas: 3
+  strategy:
+    type: "RollingUpdate"
+  selector:
+    matchLabels:
+      app: hello-ignite2018
+  template:
+    metadata:
+      labels:
+        app: hello-ignite2018
+    spec:
+      imagePullSecrets:
+        - name: my-secret
+      containers:
+        - name: hello-ignite2018
+          image: acrjdtest.azurecr.io/jldeen/ignite2018:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: hello-ignite
+  name: hello-ignite
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 3000
+      name: http
+  selector:
+    app: hello-ignite
+  type: LoadBalancer
+    
