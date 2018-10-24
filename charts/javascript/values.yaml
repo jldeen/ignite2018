@@ -4,7 +4,7 @@
 replicaCount: 3
 image:
   repository: acrjdtest.azurecr.io/acrjdtest/node-jdk8s
-  tag: jenkins-85bd61a
+  tag: jenkins
   pullPolicy: IfNotPresent
 imagePullSecrets: 
   name: node-jdk8s-secrets
