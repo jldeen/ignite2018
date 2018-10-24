@@ -83,7 +83,7 @@ volumes:[
           namespace     : config.app.name,
           chart_dir     : chart_dir,
           set           : [
-            "imageTag": image_tags_list.get(0),
+            "image.tag": image_tags_list.get(0),
             "replicas": config.app.replicas,
             "cpu": config.app.cpu,
             "memory": config.app.memory,
@@ -136,7 +136,7 @@ volumes:[
             namespace     : env.BRANCH_NAME.toLowerCase(),
             chart_dir     : chart_dir,
             set           : [
-              "imageTag": image_tags_list.get(0),
+              "image.tag": image_tags_list.get(0),
               "replicas": config.app.replicas,
               "cpu": config.app.cpu,
               "memory": config.app.memory,
@@ -165,7 +165,7 @@ volumes:[
     }
 
     // deploy only the master branch
-    if (env.BRANCH_NAME == 'master') {
+    if (env.BRANCH_NAME == 'jenkins') {
       stage ('deploy to k8s') {
           // Deploy using Helm chart
         container('helm') {
@@ -178,7 +178,7 @@ volumes:[
             namespace     : config.app.name,
             chart_dir     : chart_dir,
             set           : [
-              "imageTag": image_tags_list.get(0),
+              "image.tag": image_tags_list.get(0),
               "replicas": config.app.replicas,
               "cpu": config.app.cpu,
               "memory": config.app.memory,
