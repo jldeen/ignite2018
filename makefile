@@ -6,6 +6,7 @@ clean:
 		-sudo rm -rf .vscode docker-compose.debug.yml docker-compose.yml Dockerfile .dockerignore charts .draft-tasks.toml .draftignore draft.toml azds.yaml
 		-git stash
 		-git stash drop stash@{0}
+		-kubectx docker-for-desktop
 newk8s:
 		kubectl delete deployment hello-ignite2018
 		kubectl delete svc hello-ignite
