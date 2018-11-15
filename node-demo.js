@@ -4,7 +4,7 @@ const port = process.env.PORT || 3000;
 
 const handler = (req, res) => {
     console.log('Server received request.');
-    figlet('Hello Disney!!!', (err, data) => {
+    figlet('Hello Disney <3!!!', (err, data) => {
       if (err) {
             console.log('Something went wrong... ');
             console.dir(err);
