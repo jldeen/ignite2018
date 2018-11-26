@@ -6,7 +6,6 @@
 pool:
   vmImage: 'Ubuntu 16.04'
 
-
 variables:
   imageName: '$(containerImgName):$(build.buildId)'
 
@@ -21,7 +20,6 @@ steps:
   displayName: 'Install Helm 2.11.0'
   inputs:
     helmVersion: 2.11.0
-
 
 - task: HelmDeploy@0
   displayName: 'helm package'
