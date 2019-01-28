@@ -4,7 +4,7 @@ const port = process.env.PORT || 3000;
 
 const handler = (req, res) => {
     console.log('Server received request.');
-    figlet('Hello TechMentor from Azure Pipelines!!!', (err, data) => {
+    figlet('Hello LEAP from Azure Pipelines!!!', (err, data) => {
       if (err) {
             console.log('Something went wrong... ');
             console.dir(err);
