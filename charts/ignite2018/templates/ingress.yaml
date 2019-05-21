@@ -25,4 +25,3 @@ spec:
       - {{ .Values.ingress.hostname | quote }}
 {{- end -}}
 {{- end }}
-

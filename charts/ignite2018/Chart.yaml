@@ -1,4 +1,4 @@
 apiVersion: v1
 description: A Helm chart for Kubernetes
-name: javascript
+name: ignite2018
 version: v0.1.0
