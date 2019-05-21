@@ -1,7 +1,7 @@
 # Default values for node.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-replicaCount: 3
+replicaCount: 1
 image:
   repository: acrjdtest.azurecr.io/acrjdtest/node-jdk8s
   tag: jenkins
