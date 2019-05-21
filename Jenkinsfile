@@ -21,7 +21,7 @@ volumes:[
   node ('jenkins-pipeline') {
 
     def pwd = pwd()
-    def chart_dir = "${pwd}/charts/javascript"
+    def chart_dir = "${pwd}/charts/ignite2018"
 
     checkout scm
 
