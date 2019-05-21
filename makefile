@@ -11,7 +11,8 @@ all:
 clean:
 	-kubectx docker-for-desktop
 	-helm delete --purge ignite2018
-	-rm -rf charts draft.toml Dockerfile .draftignore .dockerignore .draft-tasks.toml target .classpath .project
+	-docker-compose -f "docker-compose.debug.yml" down
+	-rm -rf charts draft.toml Dockerfile .draftignore .dockerignore .draft-tasks.toml target .classpath .project docker-compose.debug.yml docker-compose.yml
 
 helm-delete:
 	-kubectx jdk8s-us
